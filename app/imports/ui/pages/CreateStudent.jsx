@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Card, Col, Container, Form, Row } from 'react-bootstrap';
+import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 // Must use destructuring import to avoid https://github.com/vazco/uniforms/issues/433
 import {
   AutoForm, TextField, DateField, LongTextField,
