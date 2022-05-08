@@ -1,0 +1,8 @@
+title: meteor-example-form-react
+description: How to implement forms in Meteor using Uniforms
+google_analytics:
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
