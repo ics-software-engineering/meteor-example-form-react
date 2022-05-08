@@ -1,18 +1,20 @@
 import React from 'react';
-import { Grid, Segment, Header, Form, Loader } from 'semantic-ui-react';
+import { Card, Col, Container, Form, Row } from 'react-bootstrap';
 // Must use destructuring import to avoid https://github.com/vazco/uniforms/issues/433
-import { AutoForm, TextField, DateField, LongTextField, SelectField, SubmitField } from 'uniforms-semantic';
+import {
+  AutoForm, TextField, DateField, LongTextField,
+  RadioField, SelectField, SubmitField,
+} from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { _ } from 'meteor/underscore';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import MultiSelectField from '../forms/controllers/MultiSelectField';
-import RadioField from '../forms/controllers/RadioField';
 import { StudentFormSchema as formSchema, gpa2String, gpa2Number } from '../forms/StudentFormInfo';
 import { StudentData } from '../../api/studentdata/StudentData';
 import { EnrollmentData } from '../../api/enrollmentdata/EnrollmentData';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
@@ -42,7 +44,7 @@ class EditStudent extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+    return (this.props.ready) ? this.renderPage() : <LoadingSpinner/>;
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -51,28 +53,29 @@ class EditStudent extends React.Component {
     const model = _.extend({}, this.props.studentDoc, this.props.enrollmentDoc);
     model.gpa = gpa2String(model.gpa);
     return (
-      <Grid container centered>
-        <Grid.Column>
-          <Header as="h2" textAlign="center">Edit Student</Header>
-          <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={model}>
-            <Segment>
-              <Form.Group widths={'equal'}>
-                <TextField name='name' showInlineError={true} placeholder={'Your name'}/>
-                <TextField name='email' showInlineError={true} placeholder={'Your email'}/>
-              </Form.Group>
-              <LongTextField name='bio' showInlineError={true} placeholder={'A bit about you'}/>
-              <Form.Group widths={'equal'}>
-                <SelectField name='level' showInlineError={true} />
-                <SelectField name='gpa' showInlineError={true} placeholder={'Select one'} />
-                <DateField name='enrolled' showInlineError={true}/>
-              </Form.Group>
-              <MultiSelectField name='hobbies' showInlineError={true} placeholder={'Select hobbies (optional)'}/>
-              <RadioField name='major' inline showInlineError={true}/>
-              <SubmitField value='Update'/>
-            </Segment>
-          </AutoForm>
-        </Grid.Column>
-      </Grid>
+      <Container>
+        <Row className="justify-content-center">
+          <Col>
+            <h2 className="text-center">Edit Student</h2>
+            <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={model}>
+              <Card>
+                <Form.Group widths={'equal'}>
+                  <TextField name='name' showInlineError={true} placeholder={'Your name'}/>
+                  <TextField name='email' showInlineError={true} placeholder={'Your email'}/>
+                </Form.Group>
+                <LongTextField name='bio' showInlineError={true} placeholder={'A bit about you'}/>
+                <Form.Group widths={'equal'}>
+                  <SelectField name='level' showInlineError={true}/>
+                  <SelectField name='gpa' showInlineError={true} placeholder={'Select one'}/>
+                  <DateField name='enrolled' showInlineError={true}/>
+                </Form.Group>
+                <SelectField name='hobbies' showInlineError={true} placeholder={'Select hobbies (optional)'} multiple/>
+                <RadioField name='major' inline showInlineError={true}/>
+                <SubmitField value='Update'/>
+              </Card>
+            </AutoForm>
+          </Col></Row>
+      </Container>
     );
   }
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import 'semantic-ui-css/semantic.css';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';

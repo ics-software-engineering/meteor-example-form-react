@@ -1,11 +1,12 @@
 import React from 'react';
-import { Grid, Segment, Header, Form, Message } from 'semantic-ui-react';
+import { Alert, Card, Col, Container, Form, Row } from 'react-bootstrap';
 // Must use destructuring import to avoid https://github.com/vazco/uniforms/issues/433
-import { AutoForm, TextField, DateField, LongTextField, SelectField, SubmitField } from 'uniforms-semantic';
+import {
+  AutoForm, TextField, DateField, LongTextField,
+  RadioField, SelectField, SubmitField,
+} from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import MultiSelectField from '../forms/controllers/MultiSelectField';
-import RadioField from '../forms/controllers/RadioField';
 import { StudentFormSchema as formSchema, gpa2Number } from '../forms/StudentFormInfo';
 import { StudentData } from '../../api/studentdata/StudentData';
 import { EnrollmentData } from '../../api/enrollmentdata/EnrollmentData';
@@ -45,29 +46,30 @@ class CreateStudent extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid container centered>
-        <Grid.Column>
-          <Header as="h2" textAlign="center">Create Student</Header>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
-            <Segment>
-              <Form.Group widths={'equal'}>
-                <TextField name='name' showInlineError={true} placeholder={'Your name'}/>
-                <TextField name='email' showInlineError={true} placeholder={'Your email'}/>
-              </Form.Group>
-              <LongTextField name='bio' showInlineError={true} placeholder={'A bit about you'}/>
-              <Form.Group widths={'equal'}>
-                <SelectField name='level' showInlineError={true} />
-                <SelectField name='gpa' showInlineError={true} placeholder={'Select one'} />
-                <DateField name='enrolled' showInlineError={true}/>
-              </Form.Group>
-              <MultiSelectField name='hobbies' showInlineError={true} placeholder={'Select hobbies (optional)'}/>
-              <RadioField name='major' inline showInlineError={true}/>
-              <SubmitField value='Submit'/>
-            </Segment>
-          </AutoForm>
-          {this.state.email ? <Message>Edit <a href={`/#/student/${this.state.email}`}>this data</a></Message> : ''}
-        </Grid.Column>
-      </Grid>
+      <Container>
+        <Row className="justify-content-center">
+          <Col>
+            <h2 className="text-center">Create Student</h2>
+            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
+              <Card>
+                <Row>
+                  <Col><TextField name='name' showInlineError={true} placeholder={'Your name'}/></Col>
+                  <Col><TextField name='email' showInlineError={true} placeholder={'Your email'}/></Col>
+                </Row>
+                <LongTextField name='bio' showInlineError={true} placeholder={'A bit about you'}/>
+                <Row>
+                  <Col><SelectField name='level' showInlineError={true}/></Col>
+                  <Col><SelectField name='gpa' showInlineError={true} placeholder={'Select one'}/></Col>
+                  <Col><DateField name='enrolled' showInlineError={true}/></Col>
+                </Row>
+                <SelectField name='hobbies' showInlineError={true} placeholder={'Select hobbies (optional)'} multiple/>
+                <RadioField name='major' inline showInlineError={true}/>
+                <SubmitField value='Submit'/>
+              </Card>
+            </AutoForm>
+            {this.state.email ? <Alert>Edit <a href={`/#/student/${this.state.email}`}>this data</a></Alert> : ''}</Col>
+        </Row>
+      </Container>
     );
   }
 }

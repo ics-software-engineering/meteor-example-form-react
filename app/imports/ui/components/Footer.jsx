@@ -1,4 +1,5 @@
 import React from 'react';
+import { Col, Container } from 'react-bootstrap';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 class Footer extends React.Component {
@@ -6,13 +7,16 @@ class Footer extends React.Component {
     const divStyle = { paddingTop: '15px' };
     return (
       <footer>
-        <div style={divStyle} className="ui center aligned container">
-          <hr />
-              Department of Information and Computer Sciences <br />
-              University of Hawaii<br />
-              Honolulu, HI 96822 <br />
-          <a href="http://ics-software-engineering.github.io/meteor-example-form-react">Template Home Page</a>
-        </div>
+        <Container style={divStyle}>
+          <Col className="text-center">
+            <hr/>
+            Department of Information and Computer Sciences <br/>
+            University of Hawaii<br/>
+            Honolulu, HI 96822 <br/>
+            <a href="http://ics-software-engineering.github.io/meteor-example-form-react-bootstrap">
+              Template Home Page</a>
+          </Col>
+        </Container>
       </footer>
     );
   }
