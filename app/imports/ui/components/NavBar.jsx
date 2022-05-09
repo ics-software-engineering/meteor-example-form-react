@@ -6,7 +6,7 @@ import { Container, Navbar } from 'react-bootstrap';
 const NavBar = () => {
   const menuStyle = { marginBottom: '10px' };
   return (
-    <Navbar bg="light" expand="lg" style={menuStyle}>
+    <Navbar bg="dark" expand="lg" style={menuStyle}>
       <Container>
         <Navbar.Brand as={NavLink} activeClassName="" exact to="/">
           <h1>meteor-example-form-react-bootstrap</h1>

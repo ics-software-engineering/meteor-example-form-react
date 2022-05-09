@@ -1,8 +1,8 @@
-![](https://raw.githubusercontent.com/ics-software-engineering/meteor-example-form-react/master/doc/create-student-page.png)
+![](https://raw.githubusercontent.com/ics-software-engineering/meteor-example-form-react-bootstrap/main/doc/create-student-page.png)
 
-meteor-example-form-react is a sample Meteor 2.4 application that illustrates how to use [Uniforms](https://uniforms.tools/) for form development.
+meteor-example-form-react is a sample Meteor 2.7.1 application that illustrates how to use [Uniforms](https://uniforms.tools/) for form development.
 
-Some of the features of this example:
+Some features of this example:
 
 * In order to focus on form processing, the application has just two pages: Create Student and Edit Student.
 * A variety of common controllers are shown: text box, text area, single selection, multiple selection, date selection, and radio boxes.
@@ -24,49 +24,25 @@ $ meteor npm install
 
 ## Running the system
 
-Once the libraries are installed, you can run the application by invoking the "start" script in the [package.json file](https://github.com/ics-software-engineering/meteor-example-form-react/blob/master/app/package.json):
+Once the libraries are installed, you can run the application by invoking the "start" script in the [package.json file](https://github.com/ics-software-engineering/meteor-example-form-react-bootstrap/blob/main/app/package.json):
 
 
 ```
-meteor npm run start
+% meteor npm run start
 
-> meteor-example-form-react@ start /Users/philipjohnson/github/ics-software-engineering/meteor-example-form-react/app
-> meteor --no-release-check --settings ../config/settings.development.json
+> meteor-example-form-react@ start /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react-bootstrap/app
+> meteor --no-release-check --exclude-archs web.browser.legacy,web.cordova --settings ../config/settings.development.json
 
-[[[[[ ~/github/ics-software-engineering/meteor-example-form-react/app ]]]]]
+[[[[[ ~/GitHub/ICS314/meteor-example-form-react-bootstrap/app ]]]]]
 
-=> Started proxy.
-=> Started MongoDB.
-W20190718-11:08:30.749(-10)? (STDERR) Note: you are using a pure-JavaScript implementation of bcrypt.
-W20190718-11:08:30.770(-10)? (STDERR) While this implementation will work correctly, it is known to be
-W20190718-11:08:30.771(-10)? (STDERR) approximately three times slower than the native implementation.
-W20190718-11:08:30.771(-10)? (STDERR) In order to use the native implementation instead, run
-W20190718-11:08:30.771(-10)? (STDERR)
-W20190718-11:08:30.771(-10)? (STDERR)   meteor npm install --save bcrypt
-W20190718-11:08:30.771(-10)? (STDERR)
-W20190718-11:08:30.771(-10)? (STDERR) in the root directory of your application.
+=> Started proxy.                             
+=> Started HMR server.                        
+=> Started MongoDB.                           
+I20220509-12:33:04.931(-10)? Monti APM: completed instrumenting the app
 => Started your app.
 
 => App running at: http://localhost:3000/
 ```
-
-
-### Note regarding "bcrypt warning":
-
-You will get the following message when you run this application:
-
-```
-Note: you are using a pure-JavaScript implementation of bcrypt.
-While this implementation will work correctly, it is known to be
-approximately three times slower than the native implementation.
-In order to use the native implementation instead, run
-
-  meteor npm install --save bcrypt
-
-in the root directory of your application.
-```
-
-On some operating systems (particularly Windows), installing bcrypt is much more difficult than implied by the above message. Bcrypt is only used in Meteor for password checking, so the performance implications are negligible until your site has very high traffic. You can safely ignore this warning without any problems during initial stages of development.
 
 ### Viewing the running app
 
@@ -86,15 +62,15 @@ To best understand this application, it is useful to familiarize yourself with:
 
 * [Meteor Application Template React](http://ics-software-engineering.github.io/meteor-application-template-react/). This sample application illustrates conventions for directory layout, naming conventions, routing, integration of Semantic UI, and coding standards. Meteor-example-form is based on this template, so we won't discuss any of these issues here.
 
-* [Semantic UI React](https://react.semantic-ui.com/). We use Semantic UI for this template.
+* [Bootstrap 5 React](https://react-bootstrap.github.io/). We use Bootstrap 5 for this template.
 
-* [Uniforms](https://uniforms.tools/). Uniforms is a library for simplifying form management with React, and includes built-in integration with Semantic UI.
+* [Uniforms](https://uniforms.tools/). Uniforms is a library for simplifying form management with React, and includes built-in integration with Bootstrap 5.
 
 ## Walkthrough
 
 The landing page for this application provides the Create Student form:
 
-![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/master/doc/create-student-page.png)
+![](https://github.com/ics-software-engineering/meteor-example-form-react-bootstrap/raw/master/doc/create-student-page.png)
 
 This form has the following input controls:
 
@@ -103,21 +79,21 @@ This form has the following input controls:
 * Level: select field, required. Default is Freshman
 * GPA: select field, required. User must choose one.
 * Date enrolled: date field. Defaults to current time and day.
-* Hobbies: multiple select field (custom implementation of a Uniform controller, code is [here](https://github.com/ics-software-engineering/meteor-example-form-react/blob/master/app/imports/ui/forms/controllers/MultiSelectField.jsx)).
-* Major: select field implemented as Radio buttons (custom implementation to provide inline layout, code is [here](https://github.com/ics-software-engineering/meteor-example-form-react/blob/master/app/imports/ui/forms/controllers/RadioField.jsx)).
+* Hobbies: multiple select field.
+* Major: select field implemented as Radio buttons.
 
 A filled out but not yet submitted Create Student form looks like this:
 
 
-![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/master/doc/create-student-page-filled-in.png)
+![](https://github.com/ics-software-engineering/meteor-example-form-react-bootstrap/raw/main/doc/create-student-page-filled-in.png)
 
 After submission, the page pops up an alert showing the submission was successful:
 
-![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/master/doc/create-student-page-submitted.png)
+![](https://github.com/ics-software-engineering/meteor-example-form-react-bootstrap/raw/main/doc/create-student-page-submitted.png)
 
 Also note that after dismissing the alert, there is a link of the Create Student page to a page where you can edit the document. Here is this page:
 
-![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/master/doc/edit-student-page.png)
+![](https://github.com/ics-software-engineering/meteor-example-form-react-bootstrap/raw/main/doc/edit-student-page.png)
 
 You can edit the fields, then click 'Update' to save the changes.
 
