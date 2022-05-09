@@ -2,7 +2,7 @@
 
 meteor-example-form-react is a sample Meteor 2.7.1 application that illustrates how to use [Uniforms](https://uniforms.tools/) for form development.
 
-Some features of this example:
+Some features of this example: 
 
 * In order to focus on form processing, the application has just two pages: Create Student and Edit Student.
 * A variety of common controllers are shown: text box, text area, single selection, multiple selection, date selection, and radio boxes.
