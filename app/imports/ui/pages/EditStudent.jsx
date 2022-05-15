@@ -66,20 +66,21 @@ const EditStudent = () => {
           <h2 className="text-center">Edit Student</h2>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={model}>
             <Card>
-              <Row>
-                <Col><TextField name='name' showInlineError={true} placeholder={'Your name'}/></Col>
-                <Col><TextField name='email' showInlineError={true} placeholder={'Your email'} disabled/></Col>
-              </Row>
-              <LongTextField name='bio' showInlineError={true} placeholder={'A bit about you'}/>
-              <Row>
-                <Col><SelectField name='level' showInlineError={true}/></Col>
-                <Col><SelectField name='gpa' showInlineError={true} placeholder={'Select one'}/></Col>
-                <Col><DateField name='enrolled' showInlineError={true}/></Col>
-              </Row>
-              <SelectField name='hobbies' showInlineError={true} placeholder={'Select hobbies (optional)'}
-                multiple checkboxes inline/>
-              <RadioField name='major' inline showInlineError={true}/>
-              <SubmitField value='Update'/>
+              <Container>
+                <Row>
+                  <Col><TextField name='name' showInlineError={true} placeholder={'Your name'}/></Col>
+                  <Col><TextField name='email' showInlineError={true} placeholder={'Your email'} disabled/></Col>
+                </Row>
+                <LongTextField name='bio' showInlineError={true} placeholder={'A bit about you'}/>
+                <Row>
+                  <Col><SelectField name='level' showInlineError={true}/></Col>
+                  <Col><SelectField name='gpa' showInlineError={true} placeholder={'Select one'}/></Col>
+                  <Col><DateField name='enrolled' showInlineError={true}/></Col>
+                </Row>
+                <SelectField name='hobbies' showInlineError={true} placeholder={'Select hobbies (optional)'}
+                  multiple checkboxes inline/>
+                <RadioField name='major' inline showInlineError={true}/>
+                <SubmitField value='Update'/></Container>
             </Card>
           </AutoForm>
         </Col></Row>

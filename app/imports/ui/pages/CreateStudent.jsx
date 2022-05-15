@@ -63,7 +63,7 @@ const CreateStudent = () => {
               <SubmitField value='Submit'/>
             </Card>
           </AutoForm>
-          {emailState ? <Alert>Edit <a href={`/#/student/${emailState}`}>this data</a></Alert> : ''}</Col>
+          {emailState ? <Alert>Edit <a href={`/student/${emailState}`}>this data</a></Alert> : ''}</Col>
       </Row>
     </Container>
   );
