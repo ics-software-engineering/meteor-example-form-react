@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/ics-software-engineering/meteor-example-form-react-bootstrap/main/doc/create-student-page.png)
+![](https://raw.githubusercontent.com/ics-software-engineering/meteor-example-form-react/main/doc/create-student-page.png)
 
 meteor-example-form-react is a sample Meteor 2.7.1 application that illustrates how to use [Uniforms](https://uniforms.tools/) for form development.
 
@@ -8,7 +8,7 @@ Some features of this example:
 * A variety of common controllers are shown: text box, text area, single selection, multiple selection, date selection, and radio boxes.
 * Two customized versions of Uniform controllers illustrate how to extend the built-in Uniforms controllers.
 * The forms in this example update two Mongo collections, illustrating the situation where there is not a one-to-one correspondence between the collection schema and the form schema.
-* There is a 35 minute [YouTube screencast](https://www.youtube.com/watch?v=ZCHf_rNbDaM) providing a walkthrough of the code.
+* There is a 35 minute YouTube screencast providing a walkthrough of the code.
 
 ## Installation
 
@@ -24,21 +24,44 @@ $ meteor npm install
 
 ## Running the system
 
-Once the libraries are installed, you can run the application by invoking the "start" script in the [package.json file](https://github.com/ics-software-engineering/meteor-example-form-react-bootstrap/blob/main/app/package.json):
+Once the libraries are installed, you can run the application by invoking the "start" script in the [package.json file](https://github.com/ics-software-engineering/meteor-example-form-react/blob/main/app/package.json):
 
 
-```
-% meteor npm run start
+```shell
+%  meteor npm run start
 
-> meteor-example-form-react@ start /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react-bootstrap/app
+> meteor-example-form-react@ start /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react/app
+> npm-run-all css start-meteor
+
+
+> meteor-example-form-react@ css /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react/app
+> npm-run-all css-compile css-prefix
+
+
+> meteor-example-form-react@ css-compile /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react/app
+> node-sass --include-path node_modules --output-style compressed --source-map true --source-map-contents true --precision 6 scss -o imports/startup/client/css/
+
+Rendering Complete, saving .css file...
+Wrote Source Map to /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react/app/imports/startup/client/css/theme.css.map
+Wrote CSS to /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react/app/imports/startup/client/css/theme.css
+Wrote 1 CSS files to /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react/app/imports/startup/client/css/
+
+> meteor-example-form-react@ css-prefix /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react/app
+> postcss imports/startup/client/css/theme.css --replace --use autoprefixer --map
+
+
+28:2    ⚠  Replace color-adjust to print-color-adjust. The color-adjust shorthand is currently deprecated. [autoprefixer]
+
+
+> meteor-example-form-react@ start-meteor /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react/app
 > meteor --no-release-check --exclude-archs web.browser.legacy,web.cordova --settings ../config/settings.development.json
 
-[[[[[ ~/GitHub/ICS314/meteor-example-form-react-bootstrap/app ]]]]]
+[[[[[ ~/GitHub/ICS314/meteor-example-form-react/app ]]]]]
 
 => Started proxy.                             
 => Started HMR server.                        
 => Started MongoDB.                           
-I20220509-12:33:04.931(-10)? Monti APM: completed instrumenting the app
+I20220517-13:18:12.116(-10)? Monti APM: completed instrumenting the app
 => Started your app.
 
 => App running at: http://localhost:3000/
@@ -70,7 +93,7 @@ To best understand this application, it is useful to familiarize yourself with:
 
 The landing page for this application provides the Create Student form:
 
-![](https://github.com/ics-software-engineering/meteor-example-form-react-bootstrap/raw/master/doc/create-student-page.png)
+![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/master/doc/create-student-page.png)
 
 This form has the following input controls:
 
@@ -85,15 +108,15 @@ This form has the following input controls:
 A filled out but not yet submitted Create Student form looks like this:
 
 
-![](https://github.com/ics-software-engineering/meteor-example-form-react-bootstrap/raw/main/doc/create-student-page-filled-in.png)
+![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/main/doc/create-student-page-filled-in.png)
 
 After submission, the page pops up an alert showing the submission was successful:
 
-![](https://github.com/ics-software-engineering/meteor-example-form-react-bootstrap/raw/main/doc/create-student-page-submitted.png)
+![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/main/doc/create-student-page-submitted.png)
 
 Also note that after dismissing the alert, there is a link of the Create Student page to a page where you can edit the document. Here is this page:
 
-![](https://github.com/ics-software-engineering/meteor-example-form-react-bootstrap/raw/main/doc/edit-student-page.png)
+![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/main/doc/edit-student-page.png)
 
 You can edit the fields, then click 'Update' to save the changes.
 
