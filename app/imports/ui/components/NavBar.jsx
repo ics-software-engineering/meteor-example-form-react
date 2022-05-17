@@ -9,7 +9,7 @@ const NavBar = () => {
     <Navbar bg="dark" expand="lg" style={menuStyle}>
       <Container>
         <Navbar.Brand as={NavLink} activeClassName="" exact to="/">
-          <h1>meteor-example-form-react-bootstrap</h1>
+          <h1>meteor-example-form-react</h1>
         </Navbar.Brand>
       </Container>
     </Navbar>
