@@ -1,0 +1,17 @@
+/* Change bootstrap variable values.
+ See https://getbootstrap.com/docs/5.2/customize/css-variables/
+ */
+body {
+  --bs-dark: #198754;
+  --bs-dark-rgb: 25, 135, 84;
+  --bs-body-font-size: 20px;
+  --bs-link-color: #93400D;
+}
+
+/* Define custom styles */
+.gray-background {
+  background-color: var(--bs-gray-200);
+  color: var(--bs-dark);
+  padding-top: 10px;
+  padding-bottom: 20px;
+}

@@ -9,10 +9,14 @@ const gpa2Number = (string) => gpaValues.indexOf(string);
 const StudentFormSchema = new SimpleSchema({
   name: { label: 'Name', type: String },
   email: { label: 'Email', type: String },
-  bio: { label: 'Biographical Statement', type: String, optional: true, defaultValue: '' },
+  bio: {
+    label: 'Biographical Statement', type: String, optional: true, defaultValue: '',
+  },
   hobbies: { label: 'Hobbies', type: Array, optional: true },
   'hobbies.$': { type: String, allowedValues: DataValues.hobbies },
-  level: { label: 'Level', type: String, allowedValues: DataValues.levels, defaultValue: DataValues.levels[0] },
+  level: {
+    label: 'Level', type: String, allowedValues: DataValues.levels, defaultValue: DataValues.levels[0],
+  },
   gpa: { label: 'GPA', type: String, allowedValues: gpaValues },
   major: { label: 'Major', type: String, allowedValues: DataValues.majors },
   enrolled: { label: 'Date Enrolled', type: Date, defaultValue: new Date() },
