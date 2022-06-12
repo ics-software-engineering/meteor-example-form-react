@@ -36,6 +36,7 @@
   },
   "scripts": {
     "start": "meteor --no-release-check --exclude-archs web.browser.legacy,web.cordova --settings ../config/settings.development.json",
-    "lint": "eslint --quiet --fix --ext .jsx --ext .js ./imports"
+    "lint": "eslint --quiet --ext .jsx --ext .js ./imports",
+    "lint-fix": "eslint --quiet --fix --ext .jsx --ext .js ./imports"
   }
 }
