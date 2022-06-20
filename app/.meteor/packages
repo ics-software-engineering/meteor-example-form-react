@@ -7,7 +7,7 @@
 # Core packages for Meteor/React/Semantic UI
 meteor-base@1.5.1                # Packages every Meteor app needs to have
 mobile-experience@1.1.0          # Packages for a great mobile UX
-mongo@1.14.6                     # The database Meteor supports right now
+mongo@1.15.0                     # The database Meteor supports right now
 reactive-var@1.0.11              # Reactive variable for tracker
 
 standard-minifier-css@1.8.1      # CSS minifier run for production mode
@@ -40,5 +40,5 @@ ejson@1.1.2                      # https://docs.meteor.com/api/ejson.html
 # Application Performance Monitoring
 montiapm:agent                   # see http://montiapm.com
 zodern:hide-production-sourcemaps
-hot-module-replacement
-dev-error-overlay
+hot-module-replacement@0.5.1
+dev-error-overlay@0.1.1
