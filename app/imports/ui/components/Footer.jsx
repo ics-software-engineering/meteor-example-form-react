@@ -9,12 +9,10 @@ const Footer = () => {
       <Container style={divStyle}>
         <Col className="text-center">
           Department of Information and Computer Sciences
-          {' '}
           <br />
           University of Hawaii
           <br />
           Honolulu, HI 96822
-          {' '}
           <br />
           <a href="http://ics-software-engineering.github.io/meteor-example-form-react-bootstrap">
             Template Home Page

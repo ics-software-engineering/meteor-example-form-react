@@ -23,6 +23,7 @@ module.exports = {
     camelcase: 'off',
     'class-methods-use-this': 'off',
     'func-names': 'off',
+    'function-paren-newline': 'off',
     'import/no-absolute-path': 'off',
     'import/no-unresolved': 'off',
     'import/extensions': 'off',

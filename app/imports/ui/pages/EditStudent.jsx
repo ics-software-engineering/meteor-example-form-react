@@ -1,11 +1,7 @@
 import React from 'react';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import {
-  Card, Col, Container, Row,
-} from 'react-bootstrap';
-// Must use destructuring import to avoid https://github.com/vazco/uniforms/issues/433
-import {
-  AutoForm, TextField, DateField, LongTextField,
-  RadioField, SelectField, SubmitField,
+  AutoForm, TextField, DateField, LongTextField, RadioField, SelectField, SubmitField,
 } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { _ } from 'meteor/underscore';
@@ -42,18 +38,10 @@ function EditStudent() {
     let updateError;
     const studentId = studentDoc._id;
     const enrollmentId = enrollmentDoc._id;
-    const {
-      name, bio, level, gpa, enrolled, hobbies, major,
-    } = data;
-    StudentData.update(
-      studentId,
-      {
-        $set: {
-          name, bio, level, gpa: gpa2Number(gpa), hobbies, major,
-        },
-      },
-      (error) => { updateError = error; },
-    );
+    const { name, bio, level, gpa, enrolled, hobbies, major } = data;
+    StudentData.update(studentId,
+      { $set: { name, bio, level, gpa: gpa2Number(gpa), hobbies, major } },
+      (error) => { updateError = error; });
     if (updateError) {
       swal('Error', updateError.message, 'error');
     } else {

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
-// Must use destructuring import to avoid https://github.com/vazco/uniforms/issues/433
 import {
   AutoForm, TextField, DateField, LongTextField, RadioField, SelectField, SubmitField,
 } from 'uniforms-bootstrap5';
