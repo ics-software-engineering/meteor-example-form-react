@@ -12,7 +12,7 @@ import { EnrollmentData } from '../../api/enrollmentdata/EnrollmentData';
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the Page for adding a document. */
-function CreateStudent() {
+const CreateStudent = () => {
   const [emailState, setEmailState] = useState('');
 
   /* On submit, try to insert the data. If successful, reset the form. */
@@ -30,10 +30,7 @@ function CreateStudent() {
     if (insertError) {
       swal('Error', insertError.message, 'error');
     } else {
-      EnrollmentData.insert(
-        { email, enrolled },
-        (error) => { insertError = error; },
-      );
+      EnrollmentData.insert({ email, enrolled }, (error) => { insertError = error; });
       if (insertError) {
         swal('Error', insertError.message, 'error');
       } else {
@@ -99,6 +96,6 @@ function CreateStudent() {
       </Row>
     </Container>
   );
-}
+};
 
 export default CreateStudent;

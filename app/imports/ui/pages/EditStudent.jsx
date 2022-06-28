@@ -17,7 +17,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the Page for editing a document. */
-function EditStudent() {
+const EditStudent = () => {
   // Get the email from the URL field. See imports/ui/layouts/App.jsx for the route containing :email.
   const { email } = useParams();
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -45,11 +45,7 @@ function EditStudent() {
     if (updateError) {
       swal('Error', updateError.message, 'error');
     } else {
-      EnrollmentData.update(
-        enrollmentId,
-        { $set: { enrolled } },
-        (error) => { updateError = error; },
-      );
+      EnrollmentData.update(enrollmentId, { $set: { enrolled } }, (error) => { updateError = error; });
       if (updateError) {
         swal('Error', updateError.message, 'error');
       } else {
@@ -58,7 +54,7 @@ function EditStudent() {
     }
   };
 
-  /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
+  /* If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   const model = _.extend({}, studentDoc, enrollmentDoc);
   model.gpa = gpa2String(model.gpa);
   return (ready)
@@ -97,6 +93,6 @@ function EditStudent() {
         </Row>
       </Container>
     ) : <LoadingSpinner />;
-}
+};
 
 export default EditStudent;
