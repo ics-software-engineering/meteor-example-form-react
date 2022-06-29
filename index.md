@@ -28,32 +28,9 @@ Once the libraries are installed, you can run the application by invoking the "s
 
 
 ```shell
-%  meteor npm run start
+% meteor npm run start
 
 > meteor-example-form-react@ start /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react/app
-> npm-run-all css start-meteor
-
-
-> meteor-example-form-react@ css /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react/app
-> npm-run-all css-compile css-prefix
-
-
-> meteor-example-form-react@ css-compile /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react/app
-> node-sass --include-path node_modules --output-style compressed --source-map true --source-map-contents true --precision 6 scss -o imports/startup/client/css/
-
-Rendering Complete, saving .css file...
-Wrote Source Map to /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react/app/imports/startup/client/css/theme.css.map
-Wrote CSS to /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react/app/imports/startup/client/css/theme.css
-Wrote 1 CSS files to /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react/app/imports/startup/client/css/
-
-> meteor-example-form-react@ css-prefix /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react/app
-> postcss imports/startup/client/css/theme.css --replace --use autoprefixer --map
-
-
-28:2    ⚠  Replace color-adjust to print-color-adjust. The color-adjust shorthand is currently deprecated. [autoprefixer]
-
-
-> meteor-example-form-react@ start-meteor /Users/carletonmoore/GitHub/ICS314/meteor-example-form-react/app
 > meteor --no-release-check --exclude-archs web.browser.legacy,web.cordova --settings ../config/settings.development.json
 
 [[[[[ ~/GitHub/ICS314/meteor-example-form-react/app ]]]]]
@@ -61,7 +38,7 @@ Wrote 1 CSS files to /Users/carletonmoore/GitHub/ICS314/meteor-example-form-reac
 => Started proxy.                             
 => Started HMR server.                        
 => Started MongoDB.                           
-I20220517-13:18:12.116(-10)? Monti APM: completed instrumenting the app
+I20220629-09:06:46.335(-10)? Monti APM: completed instrumenting the app
 => Started your app.
 
 => App running at: http://localhost:3000/
