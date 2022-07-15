@@ -41,6 +41,8 @@ const CreateStudent = () => {
     }
   };
 
+  const transform = (label) => ` ${label}`;
+
   /* Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   let fRef = null;
   return (
@@ -67,7 +69,7 @@ const CreateStudent = () => {
                 <Col>
                   <SelectField name="gpa" showInlineError help="Select one (required)" helpClassName="text-danger" />
                 </Col>
-                <Col><DateField name="enrolled" showInlineError /></Col>
+                <Col><DateField name="enrolled" showInlineError type="date" /></Col>
               </Row>
               <SelectField
                 name="hobbies"
@@ -76,6 +78,9 @@ const CreateStudent = () => {
                 multiple
                 checkboxes
                 inline
+                labelClassName="px-2"
+                inputClassName="px-1"
+                transform={transform}
               />
               <RadioField
                 name="major"
@@ -83,6 +88,7 @@ const CreateStudent = () => {
                 showInlineError
                 help="What is your major? (required)"
                 helpClassName="text-danger"
+                labelClassName="px-2"
               />
               <SubmitField value="Submit" />
             </Card>

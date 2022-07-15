@@ -54,6 +54,8 @@ const EditStudent = () => {
     }
   };
 
+  const transform = (label) => ` ${label}`;
+
   /* If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   const model = _.extend({}, studentDoc, enrollmentDoc);
   model.gpa = gpa2String(model.gpa);
@@ -74,7 +76,7 @@ const EditStudent = () => {
                   <Row>
                     <Col><SelectField name="level" showInlineError /></Col>
                     <Col><SelectField name="gpa" showInlineError placeholder="Select one" /></Col>
-                    <Col><DateField name="enrolled" showInlineError /></Col>
+                    <Col><DateField name="enrolled" showInlineError type="datetime-local" /></Col>
                   </Row>
                   <SelectField
                     name="hobbies"
@@ -83,8 +85,9 @@ const EditStudent = () => {
                     multiple
                     checkboxes
                     inline
+                    transform={transform}
                   />
-                  <RadioField name="major" inline showInlineError />
+                  <RadioField name="major" inline showInlineError labelClassName="px-2" />
                   <SubmitField value="Update" />
                 </Container>
               </Card>
