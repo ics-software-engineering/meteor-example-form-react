@@ -41,6 +41,7 @@ const CreateStudent = () => {
     }
   };
 
+  // Put a space before the label for the Hobbies SelectField.
   const transform = (label) => ` ${label}`;
 
   /* Render the form. Use Uniforms: https://github.com/vazco/uniforms */
