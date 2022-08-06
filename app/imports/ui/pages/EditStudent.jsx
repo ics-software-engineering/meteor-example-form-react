@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import {
-  AutoForm, TextField, DateField, LongTextField, RadioField, SelectField, SubmitField,
+  AutoForm, TextField, LongTextField, RadioField, SelectField, SubmitField,
 } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { _ } from 'meteor/underscore';
@@ -9,6 +9,7 @@ import { useParams } from 'react-router';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
+import DateField from '../forms/DateField2';
 import { StudentFormSchema as formSchema, gpa2String, gpa2Number } from '../forms/StudentFormInfo';
 import { StudentData } from '../../api/studentdata/StudentData';
 import { EnrollmentData } from '../../api/enrollmentdata/EnrollmentData';
