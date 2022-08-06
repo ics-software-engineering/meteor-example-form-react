@@ -6,21 +6,21 @@ import { wrapField } from 'uniforms-bootstrap5';
 const DateConstructor = (typeof global === 'object' ? global : window).Date;
 
 function Date({
-                disabled,
-                error,
-                id,
-                inputClassName,
-                inputRef,
-                max,
-                min,
-                name,
-                onChange,
-                placeholder,
-                readOnly,
-                value,
-                type,
-                ...props
-              }) {
+  disabled,
+  error,
+  id,
+  inputClassName,
+  inputRef,
+  max,
+  min,
+  name,
+  onChange,
+  placeholder,
+  readOnly,
+  value,
+  type,
+  ...props
+}) {
   const dateType = type === 'date' ? type : 'datetime-local';
   const dateFormat = type === 'date' ? (v) => v?.toISOString().slice(0, -14) : (v) => v?.toISOString().slice(0, -8);
   return wrapField(
