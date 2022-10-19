@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import {
-  AutoForm, TextField, LongTextField, RadioField, SelectField, SubmitField,
+  AutoForm, DateField, TextField, LongTextField, RadioField, SelectField, SubmitField,
 } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import DateField from '../forms/DateField2';
 import { StudentFormSchema as formSchema, gpa2Number } from '../forms/StudentFormInfo';
 import { StudentData } from '../../api/studentdata/StudentData';
 import { EnrollmentData } from '../../api/enrollmentdata/EnrollmentData';
