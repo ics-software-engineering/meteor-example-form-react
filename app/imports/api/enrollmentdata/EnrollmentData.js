@@ -1,6 +1,5 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
-import { Tracker } from 'meteor/tracker';
 
 /** Define a Mongo collection to hold the data. */
 const EnrollmentData = new Mongo.Collection('EnrollmentData');
@@ -9,7 +8,7 @@ const EnrollmentData = new Mongo.Collection('EnrollmentData');
 const EnrollmentDataSchema = new SimpleSchema({
   email: String,
   enrolled: Date,
-}, { tracker: Tracker });
+});
 
 /** Attach the schema to the collection. */
 EnrollmentData.attachSchema(EnrollmentDataSchema);

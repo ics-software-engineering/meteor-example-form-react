@@ -1,6 +1,5 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
-import { Tracker } from 'meteor/tracker';
 
 /** Define a Mongo collection to hold the data. */
 const StudentData = new Mongo.Collection('StudentData');
@@ -21,7 +20,7 @@ const StudentDataSchema = new SimpleSchema({
   level: { type: String, allowedValues: StudentDataValues.levels },
   gpa: Number,
   major: String,
-}, { tracker: Tracker });
+});
 
 /** Attach the schema to the collection. */
 StudentData.attachSchema(StudentDataSchema);
